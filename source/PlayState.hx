@@ -3377,7 +3377,7 @@ class PlayState extends MusicBeatState
 			case 'limo':
 				if(!cpuControlled)
 				{
-					if (_vpad.buttonA.justPressed && boyfriend.dodgetime == 0 && dodgeEvent) {
+					if (controls.ACCEPT && boyfriend.dodgetime == 0 && dodgeEvent) {
 						boyfriend.playAnim('dodge');
 						boyfriend.dodgetime = FlxG.updateFramerate;
 					}
