@@ -1962,7 +1962,7 @@ class PlayState extends MusicBeatState
 			
 		_vpad = new FlxVirtualPad(NONE, A);
 	   _vpad.cameras = [camHUD];
-			this.add(_vpad);
+			add(_vpad);
         #end
 		
 		// if (SONG.song == 'South')
