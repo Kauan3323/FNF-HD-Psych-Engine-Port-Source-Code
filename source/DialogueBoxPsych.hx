@@ -332,7 +332,20 @@ class DialogueBoxPsych extends FlxSpriteGroup
 			bgFade.alpha += 0.5 * elapsed;
 			if(bgFade.alpha > 0.5) bgFade.alpha = 0.5;
 
-			if(PlayerSettings.player1.controls.ACCEPT) {
+			#if android
+                        var justTouched:Bool = false;
+
+		        for (touch in FlxG.touches.list)
+		        {
+			        if (touch.justPressed)
+			        {
+				        justTouched = true;
+			        }
+		        }
+		        #end
+
+			if(PlayerSettings.player1.controls.ACCEPT #if android || justTouched #end) {
+			
 				if(!daText.finishedText) {
 					if(daText != null) {
 						daText.killTheTimer();
@@ -569,7 +582,7 @@ class DialogueBoxPsych extends FlxSpriteGroup
 	}
 
 	public static function parseDialogue(path:String):DialogueFile {
-		#if MODS_ALLOWED
+		#if desktop
 		if(FileSystem.exists(path))
 		{
 			return cast Json.parse(File.getContent(path));
