@@ -329,6 +329,8 @@ class PlayState extends MusicBeatState
 
 	var talking:Bool = true;
 
+	var _vpad:FlxVirtualPad;
+	
 	public var songScore:Int = 0;
 	public var songHits:Int = 0;
 	public var songMisses:Int = 0;
@@ -1957,6 +1959,12 @@ class PlayState extends MusicBeatState
 		androidControls.visible = true;
 		#end
 			
+			
+		_vpad = new FlxVirtualPad(NONE, A);
+	   _vpad.cameras = [camHUD];
+			this.add(_vpad);
+        #end
+		
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
@@ -3366,7 +3374,7 @@ class PlayState extends MusicBeatState
 			case 'limo':
 				if(!cpuControlled)
 				{
-					if (controls.DODGE && boyfriend.dodgetime == 0 && dodgeEvent) {
+					if (_vpad.buttonA.justPressed && boyfriend.dodgetime == 0 && dodgeEvent) {
 						boyfriend.playAnim('dodge');
 						boyfriend.dodgetime = FlxG.updateFramerate;
 					}
