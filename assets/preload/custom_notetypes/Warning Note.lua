@@ -2,7 +2,7 @@ function onCreate()
 	
 	for i = 0, getProperty('unspawnNotes.length')-1 do
 		
-		if getPropertyFromGroup('unspawnNotes', i, 'noteType') == 'Warning Note Alt' then
+		if getPropertyFromGroup('unspawnNotes', i, 'noteType') == 'Warning Note' then
 			setPropertyFromGroup('unspawnNotes', i, 'texture', 'warningNote');
 			setPropertyFromGroup('unspawnNotes', i, 'hitHealth', '0.023'); 
 			setPropertyFromGroup('unspawnNotes', i, 'missHealth', '1'); 
@@ -16,9 +16,9 @@ function onCreate()
 end
 
 function goodNoteHit(id, direction, noteType, isSustainNote)
-	if noteType == 'Warning Note Alt' then
+	if noteType == 'Warning Note' then
 		playSound('shooters', 1);
-		characterPlayAnim('dad', 'shoot-alt', true);
+		characterPlayAnim('dad', 'shoot', true);
 		characterPlayAnim('boyfriend', 'dodge', true);
 		setProperty('boyfriend.specialAnim', true);
 		setProperty('dad.specialAnim', true);
@@ -27,9 +27,9 @@ function goodNoteHit(id, direction, noteType, isSustainNote)
 end
 
 function noteMiss(id, direction, noteType, isSustainNote)
-	if noteType == 'Warning Note Alt' then
+	if noteType == 'Warning Note' then
 		playSound('shooters', 1);
-		characterPlayAnim('dad', 'shoot-alt', true);
+		characterPlayAnim('dad', 'shoot', true);
 		cameraShake('camGame', 0.01, 0.2)
 	end
 end
