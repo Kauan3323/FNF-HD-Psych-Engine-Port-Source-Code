@@ -52,7 +52,7 @@ class CreditsState extends MusicBeatState
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
 
-		#if MODS_ALLOWED
+		#if desktop
 		var path:String = 'modsList.txt';
 		if(FileSystem.exists(path))
 		{
@@ -202,6 +202,11 @@ class CreditsState extends MusicBeatState
 		bg.color = getCurrentBGColor();
 		intendedColor = bg.color;
 		changeSelection();
+		
+		#if android
+		addVirtualPad(UP_DOWN, A_B);
+		#end
+		
 		super.create();
 	}
 
