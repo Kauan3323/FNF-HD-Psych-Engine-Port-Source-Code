@@ -114,7 +114,7 @@ class Character extends FlxSprite
 					characterPath = 'characters old/' + curCharacter + '.json';
 				}
 
-				#if MODS_ALLOWED
+				#if desktop
 				var path:String = Paths.modFolders(characterPath);
 				if (!FileSystem.exists(path)) {
 					path = Paths.getPreloadPath(characterPath);
@@ -134,7 +134,7 @@ class Character extends FlxSprite
 				}
 
 
-				#if MODS_ALLOWED
+				#if desktop
 				var rawJson = File.getContent(path);
 				#else
 				var rawJson = Assets.getText(path);
@@ -145,7 +145,7 @@ class Character extends FlxSprite
 				//sparrow
 				//packer
 				//texture
-				#if MODS_ALLOWED
+				#if desktop
 				var modTxtToFind:String = Paths.modsTxt(json.image);
 				var txtToFind:String = Paths.getPath('images/' + json.image + '.txt', TEXT);
 				
@@ -160,7 +160,7 @@ class Character extends FlxSprite
 					spriteType = "packer";
 				}
 				
-				#if MODS_ALLOWED
+				#if desktop
 				var modAnimToFind:String = Paths.modFolders('images/' + json.image + '/Animation.json');
 				var animToFind:String = Paths.getPath('images/' + json.image + '/Animation.json', TEXT);
 				
