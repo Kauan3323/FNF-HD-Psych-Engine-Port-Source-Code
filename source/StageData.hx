@@ -3,9 +3,9 @@ package;
 #if MODS_ALLOWED
 import sys.io.File;
 import sys.FileSystem;
-#else
-import openfl.utils.Assets;
 #end
+import openfl.utils.Assets;
+
 import haxe.Json;
 import haxe.format.JsonParser;
 import Song;
@@ -88,7 +88,7 @@ class StageData {
 			path = Paths.getPreloadPath('stages old/' + stage + '.json');
 		}
 
-		#if MODS_ALLOWED
+		#if desktop
 		var modPath:String = null;
 		if(!ClientPrefs.OldHDbg) {
 			modPath = Paths.modFolders('stages/' + stage + '.json');
