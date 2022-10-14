@@ -47,6 +47,10 @@ class GallerySubState extends MusicBeatSubstate
         camFollow.x = artSprites.members[0].getMidpoint().x;
         camFollow.y = artSprites.members[0].getMidpoint().y;
         changeSelection();
+        
+        #if android
+        addVirtualPad(LEFT_FULL, A_B);
+        #end
     }
 
     override function update(elapsed:Float) {
