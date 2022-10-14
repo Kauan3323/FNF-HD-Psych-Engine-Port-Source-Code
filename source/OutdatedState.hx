@@ -27,13 +27,17 @@ class OutdatedState extends MusicBeatState
 			"Yo mah man, looks like you're running an   \n
 			outdated version of FNF HD Psych Engine Port (" + MainMenuState.HDportVersion + "),\n
 			please update to " + TitleState.updateVersion + "!\n
-			Press ESCAPE to proceed anyway.\n
+			Press B to proceed anyway.\n
 			\n
 			Thanks for playing our port!",
 			32);
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);
 		add(warnText);
+		
+		#if android
+		addVirtualPad(NONE, B);
+		#end
 	}
 
 	override function update(elapsed:Float)
