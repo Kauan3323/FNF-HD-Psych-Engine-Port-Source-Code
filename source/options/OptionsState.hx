@@ -61,8 +61,10 @@ class OptionsState extends MusicBeatState
 				removeVirtualPad();
 				#end
 				openSubState(new options.GameplaySettingsSubState());
+				#if desktop
 			case 'FNF HD Settings':
 				openSubState(new options.HDSettingsSubState());
+				#if desktop
 			case 'Adjust Delay and Combo':
 				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
 		}
