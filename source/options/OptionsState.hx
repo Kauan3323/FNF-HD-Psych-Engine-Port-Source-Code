@@ -64,7 +64,7 @@ class OptionsState extends MusicBeatState
 				#if desktop
 			case 'FNF HD Settings':
 				openSubState(new options.HDSettingsSubState());
-				#if desktop
+				#end
 			case 'Adjust Delay and Combo':
 				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
 		}
